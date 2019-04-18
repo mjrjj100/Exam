@@ -1,0 +1,76 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>WikiWatch</title>
+</head>
+
+<body id="backListeHeros">
+    <div class="container">
+        <h1 class="text-center pb-5">WikiWatch</h1>
+        <h2 class="text-center">BESOIN D'UN HEROS ?</h2>
+        <p class="text-center mb-5 mt-2">Overwatch met en avant de puissants héros internationaux aux personnalités et
+            origines
+            captivantes.<br />
+            Découvrez cette impressionnante distribution plus en détails.</p>
+        <div class="text-center mb-5 decoBtn">
+            <a href="retourIndex.html" class="btn btn-danger">Deconnexion</a>
+        </div>
+        <a href="#" class="fadeLink">
+            <div class="boutonRetourHautPage text-center">
+                ^
+            </div>
+        </a>
+        <div>
+            <div class="row text">
+                <!-- Le tempate utiliser par mustacheJs qui nous servira a alimenter le html grace a la boucle present dans le main.js -->
+                <!-- on utilise les {{ }} pour recupere les values de notre objet parcourue -->
+                <script id="template" type="x-tmpl-mustache">
+                        <a href="#">
+                        <div class="card text-center zoom">
+                                <img src="src/img/{{image}}" class="card-img-top imagePersoCard" alt="{{name}} {{role.name}}">
+                                <div class="card-body text-center">
+                                    <div class="persoInfosCard">
+                                        <img src="src/img/{{role.image}}" class="imgRoleCard mb-1 pr-2" img/>
+                                        <span>{{role.name}}</span>
+                                    </div>
+                                    <div class="nameCard">
+                                        {{name}}
+                                    </div>
+                                </div>
+                        </div>
+                        </a>
+                    </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/role.js"></script>
+    <script src="js/skill.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

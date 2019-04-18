@@ -1,0 +1,62 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>WikiWatch</title>
+</head>
+
+<body id="mainPage">
+
+    <div class="container text-center">
+
+        <h1 id="title" class="text-center">Overwatch Wiki</h1>
+            <a href="transition.html"><img class="zoomIcone" src="src/img/skull.png" alt="crane" width="280rem" height="280rem"></a>
+            <h2>BIENVENUE</h2>
+
+            
+                <div class="row">
+                    <div class="col-md-12">
+                          <div>
+                              <strong>Quel temps fait-il à ? </strong>
+                              <input id="ville" type="text"/>
+                              <button id="boutonMeteo">Request API</button>
+                          </div>
+                          <p id="reponseduserver" class="text-white"></p>          
+                    </div>
+                </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script>
+        //on catch l'evenement click sur le bouton pour faire la requete ajax au serveur au moment de l'evenement
+        $("#boutonMeteo").click(function () {
+        var wantedCity = $("#ville").val();
+        const url = "https://www.prevision-meteo.ch/services/json/"+wantedCity;
+        //Requete ajax a l'url au dessu en methode GET
+        $.ajax({
+             "url": url,
+             "type": "GET",
+             "success": function(data, status) {
+               var parsedRes = data;
+               var current_city = parsedRes.city_info.name;
+               var current_temp = parsedRes.current_condition.tmp+"°C";
+               // on affiche la reponse dans la balise qui contient l'id #reponseduserver
+             $("#reponseduserver").html("j'utilise l'API prevision meteo et à "+current_city+" il fait "+current_temp);
+             }, error:function(e) {
+               console.log("Error:" + e);
+             }
+     });
+                    
+ });
+
+    </script>
+    
+</body>
+</html>
